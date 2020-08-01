@@ -1,2 +1,2 @@
 # bashscripts
-Test repository
+Test repository for my bash scripts.
