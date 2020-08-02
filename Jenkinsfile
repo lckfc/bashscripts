@@ -38,14 +38,14 @@ pipeline{
                 failure {
                 node('master') {
                     wrap([$class: 'BuildUser']) {
-                    emailext body: "", subject: "ERROR - Build: [${JOB_NAME}] User: [${env.BUILD_USER}]", to: '$EMAIL'
+                    emailext body: "", subject: "ERROR - Build: [${JOB_NAME}] User: [${env.BUILD_USER}]", to: $EMAIL
                         }
                     }
                 }
                 success {
                 node('master') {
                     wrap([$class: 'BuildUser']) {
-                    emailext body: "", subject: "SUCCESS - Build: [${JOB_NAME}] User: [${env.BUILD_USER}]", to: '$EMAIL'
+                    emailext body: "", subject: "SUCCESS - Build: [${JOB_NAME}] User: [${env.BUILD_USER}]", to: $EMAIL
                 }
             }
         }
