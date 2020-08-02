@@ -8,7 +8,7 @@ ssh root@$HOST /etc/init.d/network restart
 echo "Checking hostname"
 ssh root@$HOST hostname
 
-echo "test"
+
 
 
 
