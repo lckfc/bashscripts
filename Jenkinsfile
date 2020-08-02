@@ -14,7 +14,8 @@ pipeline{
                         echo "Running stage 1"
                         echo "-------------------------------------------------------------------------------------------------------"
                         sh '''
-                        ssh root@$HOST1 hostnamectl set-hostname $HOST1
+                        ssh $HOST1 ls -l /
+			hostname
                         '''
                         }
                     }
@@ -26,7 +27,8 @@ pipeline{
                         echo "Running stage 2"
                         echo "-------------------------------------------------------------------------------------------------------"
                         sh '''
-                        ssh root@$HOST2 hostnamectl set-hostname $HOST2
+                        ssh $HOST2 ls -l /
+			hostname
                         '''
                     }
                 }
