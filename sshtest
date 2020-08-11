@@ -16,8 +16,9 @@ pipeline{
                         sh '''
                         #ssh $HOST1 ls -l /
 			#hostname
-			ssh jenkins@$HOST1 'if [[ -d /tmp/jenkinsfiles ]]; then echo "Exists!"; else echo "Does not exist!"; cd /tmp; git clone git@github.com:lewis-git/jenkinsfiles.git; fi'
-                        '''
+			#ssh jenkins@$HOST1 'if [[ -d /tmp/jenkinsfiles ]]; then echo "Exists!"; else echo "Does not exist!"; cd /tmp; git clone git@github.com:lewis-git/jenkinsfiles.git; fi'
+			ssh $SERVER 'ls -al'
+			'''
                         }
                     }
                 }
@@ -30,6 +31,7 @@ pipeline{
                         sh '''
                         #ssh $HOST2 ls -l /
 			#hostname
+			
                         '''
                     }
                 }
