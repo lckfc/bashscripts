@@ -10,11 +10,11 @@ pipeline{
                 steps{
                     node('master'){
                         echo "-------------------------------------------------------------------------------------------------------"
-                        echo                                          "Running stage 1."    
+                        echo "                                        Running stage 1."    
                         echo "-------------------------------------------------------------------------------------------------------"
                 sh '''
-                ssh $HOST1 sudo 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else echo "test"; fi'
-                ssh $HOST2 sudo 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else echo "test"; fi'
+                ssh root@$HOST1 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
+                ssh root@$HOST2 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
 			    '''
                         }
                     }
@@ -23,13 +23,11 @@ pipeline{
                 steps{
                     node('master'){
                         echo "-------------------------------------------------------------------------------------------------------"
-                        echo "Running stage 2......"
+                        echo "                                         Running stage 2."
                         echo "-------------------------------------------------------------------------------------------------------"
                         sh '''
-                        #ssh $HOST2 ls -l /
-			#hostname
-			
-                        '''
+                        ssh $HOST1 ls -al
+			            '''
                     }
                 }
             }
