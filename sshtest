@@ -18,6 +18,7 @@ pipeline{
 			#hostname
 			#ssh jenkins@$HOST1 'if [[ -d /tmp/jenkinsfiles ]]; then echo "Exists!"; else echo "Does not exist!"; cd /tmp; git clone git@github.com:lewis-git/jenkinsfiles.git; fi'
 			ssh $SERVER 'ls -al'
+			ssh $SERVER 'ls -al'
 			'''
                         }
                     }
