@@ -13,8 +13,8 @@ pipeline{
                         echo                                          "Running stage 1."    
                         echo "-------------------------------------------------------------------------------------------------------"
                 sh '''
-                ssh $HOST1 sudo 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
-                ssh $HOST2 sudo 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
+                ssh $HOST1 sudo 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else echo "test"; fi'
+                ssh $HOST2 sudo 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else echo "test"; fi'
 			    '''
                         }
                     }
