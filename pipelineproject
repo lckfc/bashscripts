@@ -13,10 +13,9 @@ pipeline{
                         echo                                          "Running stage 1."    
                         echo "-------------------------------------------------------------------------------------------------------"
                 sh '''
-                ssh $HOST1 if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi
-                ssh $HOST2 if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi
-                ssh $HOST2 scp 
-
+                ssh $HOST1 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
+                ssh $HOST2 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
+   
 
 
 
