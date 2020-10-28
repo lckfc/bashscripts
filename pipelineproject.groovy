@@ -7,9 +7,8 @@ pipeline{
         stages{
             stage('Stage 1' ){
                 steps{
-                    node('master')
-                    sshagent(['centostest1-root'])
-                    {
+                    node('master'){
+                    sshagent(['centostest1-root']){
                     echo "-------------------------------------------------------------------------------------------------------"
                     echo "                                        Running stage 1."    
                     echo "-------------------------------------------------------------------------------------------------------"
@@ -18,6 +17,7 @@ pipeline{
                     #ssh root@$HOST1 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
                     #ssh root@$HOST2 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; fi'
 			        '''
+                    }
                     }
                     }
                 }
