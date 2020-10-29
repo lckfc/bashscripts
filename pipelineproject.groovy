@@ -25,7 +25,7 @@ pipeline{
                     echo "                                        Retrieving Backup TAR"
                     echo "-------------------------------------------------------------------------------------------------------"
                     sh '''
-                    ssh root@$HOST1 'cd /opt/wildflybackup'; 'curl --lewis-git "caspyin:SuperBambiLC2k16" https://github.com/lewis-git/jenkins/blob/master/backup001.tar
+                    ssh root@$HOST1 'cd /opt/wildflybackup && curl --lewis-git "caspyin:SuperBambiLC2k16" https://github.com/lewis-git/jenkins/blob/master/backup001.tar'
 			        '''
                     }
                 }
