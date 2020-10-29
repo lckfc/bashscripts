@@ -14,7 +14,7 @@ pipeline{
                     sh '''
                     ssh root@$HOST1 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; echo "Directory now created."; fi'
                     ssh root@$HOST2 'if [[ -d /opt/wildflybackup ]]; then echo "Directory already exists, moving on..."; else mkdir -v /opt/wildflybackup; echo "Directory now created."; fi'
-                        '''
+                       '''
                     }
                 }
             }
@@ -25,8 +25,8 @@ pipeline{
                     echo "                                        Retrieving Backup TAR"
                     echo "-------------------------------------------------------------------------------------------------------"
                     sh '''
-                    ssh root@$HOST1 'cd /opt/wildflybackup && curl --lewis-git "caspyin:SuperBambiLC2k16" https://github.com/lewis-git/jenkins/blob/master/backup001.tar'
-			        '''
+                    ssh root@$HOST1 'curl -L -O https://github.com/lewis-git/jenkins/blob/master/backup001.tar > /opt/wildflybackup/backup001.tar'      
+                       '''
                     }
                 }
             }
