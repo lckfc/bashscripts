@@ -5,7 +5,7 @@ pipeline{
         HOST2 = 'centostest2'
          }
         stages {
-            stage('Stage 1') {
+            stage('Checking backup directories.') {
                 steps {
                     sshagent(['centostest1-root']) {
                     echo "-------------------------------------------------------------------------------------------------------"
@@ -18,7 +18,7 @@ pipeline{
                     }
                 }
             }
-            stage('STAGE2') {
+            stage('Pulling backup .tar from GIT.') {
                 steps {
                     sshagent(['centostest1-root']) {
                     echo "-------------------------------------------------------------------------------------------------------"
